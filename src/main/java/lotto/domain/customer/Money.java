@@ -1,5 +1,6 @@
 package lotto.domain.customer;
 
+import lotto.exception.MoneyIsNegativeException;
 import lotto.exception.MoneyIsZeroException;
 
 public class Money {
@@ -17,11 +18,18 @@ public class Money {
 
     private void validate(int money) {
         validateZero(money);
+        validateNegative(money);
     }
 
     private void validateZero(int money) {
         if (money == 0) {
             throw new MoneyIsZeroException();
+        }
+    }
+
+    private void validateNegative(int money) {
+        if (money < 0) {
+            throw new MoneyIsNegativeException();
         }
     }
 
