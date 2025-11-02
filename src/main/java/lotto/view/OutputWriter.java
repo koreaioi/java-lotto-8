@@ -24,6 +24,13 @@ public class OutputWriter {
         System.out.println(lottoBundle);
     }
 
+    public void printStatisticsInformationMessage(String result) {
+        printLineSeparator();
+        System.out.println("당첨 통계");
+        System.out.println("---");
+        System.out.println(result);
+    }
+
     public void printErrorMessage(String errorMessage) {
         System.out.println(errorMessage);
     }

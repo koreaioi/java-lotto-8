@@ -3,10 +3,16 @@ package lotto.view;
 import lotto.domain.customer.Lotto;
 import lotto.domain.customer.Money;
 import lotto.domain.customer.Number;
+import lotto.domain.processor.LottoRank;
 import lotto.domain.processor.WinningLotto;
 import lotto.exception.money.MoneyIsNotIntegerException;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static lotto.domain.processor.LottoRank.*;
+import static lotto.view.ViewMessage.LOTTO_STATISTIC;
 
 public class ApplicationView {
 
@@ -80,6 +86,16 @@ public class ApplicationView {
     public void printLottoSet(String quantity, String lottoBundle) {
         writer.printLottoQuantity(quantity);
         writer.printLottoBundle(lottoBundle);
+    }
+
+    public void printWinningStatistics(Map<LottoRank, Integer> statistics) {
+        List<LottoRank> resultRanks = List.of(FIFTH, FOURTH, THIRD, SECOND, FIRST);
+        String result = resultRanks.stream()
+                .map(rank -> {
+                    return LOTTO_STATISTIC.getMessage(rank.toDisplay(), String.valueOf(statistics.get(rank)));
+                })
+                .collect(Collectors.joining(System.lineSeparator()));
+        writer.printStatisticsInformationMessage(result);
     }
 
     private void validateParsingInteger(String value) {
