@@ -50,15 +50,20 @@
 5. LottoBundle
 - [타입] List<Lotto>를 가진다.
 
-6. LottoStore
+6. Customer
+- [타입] Money를 가진다.
+- [타입] LottoBundle을 가진다.
+- [구매] LottoStore로부터 LottoBundle을 구매한다.
+
+7. LottoStore
 - [생성] 수량 만큼 로또를 생성한다.
 - [판매] 돈을 받아, 로또를 판매한다.
 
 
-7. LottoProcessor
+8. LottoProcessor
 - [처리] 구매한 로또를 처리한다.
 
-8. OutputWriter
+9. OutputWriter
 - [출력] 주어진 형식에 따라서 출력한다.
   - [출력] 구입금액 요청 메세지를 형식에 따라 출력한다.
   - [출력] 예외 메세지를 출력한다.
