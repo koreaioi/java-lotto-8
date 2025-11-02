@@ -2,6 +2,7 @@ package lotto.domain.customer;
 
 import lotto.exception.lotto.LottoCountException;
 import lotto.exception.number.BonusNumberIsDuplicatedException;
+import lotto.exception.number.NormalNumberIsDuplicatedException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,7 +11,8 @@ public class Lotto {
     private final List<Number> numbers;
 
     private Lotto(List<Number> numbers) {
-        validate(numbers);
+        validateNumberLength(numbers);
+        validateDuplicateNormalNumber(numbers);
         this.numbers = numbers;
     }
 
@@ -18,9 +20,17 @@ public class Lotto {
         return new Lotto(numbers);
     }
 
-    private void validate(List<Number> numbers) {
+    private void validateNumberLength(List<Number> numbers) {
         if (numbers.size() != 6) {
             throw new LottoCountException();
+        }
+    }
+
+    private void validateDuplicateNormalNumber(List<Number> numbers) {
+        int originCount = numbers.size();
+        long distinctCount = getDistinctCount(numbers);
+        if (distinctCount != originCount) {
+            throw new NormalNumberIsDuplicatedException();
         }
     }
 
@@ -32,6 +42,12 @@ public class Lotto {
 
     public boolean contains(Number number) {
         return numbers.contains(number);
+    }
+
+    private long getDistinctCount(List<Number> numbers) {
+        return numbers.stream()
+                .distinct()
+                .count();
     }
 
     // TODO: 추가 기능 구현
