@@ -16,6 +16,11 @@ public class ApplicationView {
 
     public Money getMoney() {
         writer.printMoneyRequestMessage();
+        Money money = requestMoney();
+        return money;
+    }
+
+    public Money requestMoney() {
         while (true) {
             try {
                 String value = reader.readValue();
