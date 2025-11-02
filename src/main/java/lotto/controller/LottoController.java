@@ -2,7 +2,7 @@ package lotto.controller;
 
 import lotto.domain.customer.Customer;
 import lotto.domain.customer.Money;
-import lotto.domain.processor.WinningLotto;
+import lotto.domain.customer.WinningLotto;
 import lotto.domain.store.Store;
 import lotto.view.ApplicationView;
 

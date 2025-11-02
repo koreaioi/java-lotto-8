@@ -3,15 +3,15 @@ package lotto.view;
 import lotto.domain.customer.Lotto;
 import lotto.domain.customer.Money;
 import lotto.domain.customer.Number;
-import lotto.domain.processor.LottoRank;
-import lotto.domain.processor.WinningLotto;
+import lotto.domain.customer.LottoRank;
+import lotto.domain.customer.WinningLotto;
 import lotto.exception.money.MoneyIsNotIntegerException;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static lotto.domain.processor.LottoRank.*;
+import static lotto.domain.customer.LottoRank.*;
 import static lotto.view.ViewMessage.LOTTO_STATISTIC;
 
 public class ApplicationView {

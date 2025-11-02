@@ -2,8 +2,8 @@ package lotto.domain;
 
 import lotto.domain.customer.Lotto;
 import lotto.domain.customer.Number;
-import lotto.domain.processor.LottoRank;
-import lotto.domain.processor.WinningLotto;
+import lotto.domain.customer.LottoRank;
+import lotto.domain.customer.WinningLotto;
 import lotto.exception.lotto.BonusNumberIsDuplicatedException;
 import lotto.exception.lotto.NormalNumberIsDuplicatedException;
 import org.assertj.core.api.Assertions;

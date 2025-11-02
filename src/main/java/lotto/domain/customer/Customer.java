@@ -1,8 +1,5 @@
 package lotto.domain.customer;
 
-import lotto.domain.processor.LottoRank;
-import lotto.domain.processor.LottoResult;
-import lotto.domain.processor.WinningLotto;
 import lotto.domain.store.Store;
 
 import java.util.List;

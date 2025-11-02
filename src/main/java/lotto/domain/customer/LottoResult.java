@@ -1,4 +1,4 @@
-package lotto.domain.processor;
+package lotto.domain.customer;
 
 import java.util.Collections;
 import java.util.EnumMap;

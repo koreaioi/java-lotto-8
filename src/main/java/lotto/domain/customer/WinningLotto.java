@@ -1,7 +1,4 @@
-package lotto.domain.processor;
-
-import lotto.domain.customer.Lotto;
-import lotto.domain.customer.Number;
+package lotto.domain.customer;
 
 public class WinningLotto {
 
