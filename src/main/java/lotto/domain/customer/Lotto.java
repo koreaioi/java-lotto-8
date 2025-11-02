@@ -3,6 +3,7 @@ package lotto.domain.customer;
 import lotto.exception.lotto.LottoCountException;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Lotto {
     private final List<Number> numbers;
@@ -23,4 +24,11 @@ public class Lotto {
     }
 
     // TODO: 추가 기능 구현
+
+    public String toDisplay() {
+        return numbers.stream()
+                .map(Number::toDisplay)
+                .collect(Collectors.joining(",", "[", "]"));
+    }
+
 }

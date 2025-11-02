@@ -1,6 +1,7 @@
 package lotto.domain.customer;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LottoBundle {
 
@@ -12,6 +13,12 @@ public class LottoBundle {
 
     public static LottoBundle from(List<Lotto> lottoBundle) {
         return new LottoBundle(lottoBundle);
+    }
+
+    public String toDisplay() {
+        return lottoBundle.stream()
+                .map(Lotto::toDisplay)
+                .collect(Collectors.joining(System.lineSeparator()));
     }
 
 }

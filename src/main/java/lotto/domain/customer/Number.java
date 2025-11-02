@@ -24,4 +24,8 @@ public class Number {
         }
     }
 
+    public String toDisplay() {
+        return String.valueOf(symbol);
+    }
+
 }
