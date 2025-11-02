@@ -19,6 +19,11 @@ public class Money {
         return new Money(money);
     }
 
+    public int toLottoQuantity() {
+        // TODO(Think) 구입 금액도 구매처로부터 먼저 받아야하는 거 아닐까?
+        return symbol / LOTTO_PRICE_UNIT;
+    }
+
     private void validate(int money) {
         validateZero(money);
         validateNegative(money);
