@@ -7,9 +7,13 @@ import java.util.List;
 public class Lotto {
     private final List<Number> numbers;
 
-    public Lotto(List<Number> numbers) {
+    private Lotto(List<Number> numbers) {
         validate(numbers);
         this.numbers = numbers;
+    }
+
+    public static Lotto from(List<Number> numbers) {
+        return new Lotto(numbers);
     }
 
     private void validate(List<Number> numbers) {
