@@ -14,12 +14,12 @@ public enum LottoRank {
 
     private final int normalCount;
     private final long prizeMoney;
-    private final boolean bonus;
+    private final boolean hasBonus;
 
-    LottoRank(int normalCount, long prizeMoney, boolean bonus) {
+    LottoRank(int normalCount, long prizeMoney, boolean hasBonus) {
         this.normalCount = normalCount;
         this.prizeMoney = prizeMoney;
-        this.bonus = bonus;
+        this.hasBonus = hasBonus;
     }
 
     public long totalPrizeMoney(int quantity) {
@@ -35,6 +35,14 @@ public enum LottoRank {
                 .filter(rank -> rank.normalCount == normalCount)
                 .findFirst()
                 .orElse(MISS);
+    }
+
+    public String toDisplay() {
+        String bonusTest = "";
+        if (this.hasBonus) {
+            bonusTest = ", 보너스 볼 일치";
+        }
+        return String.format("%d개 일치%s (%,d원)", this.normalCount, bonusTest, this.prizeMoney);
     }
 
 }
