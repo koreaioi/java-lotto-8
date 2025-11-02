@@ -44,4 +44,13 @@ public class MoneyTest {
                 .doesNotThrowAnyException();
     }
 
+    @Test
+    void 구입금액을_로또수량으로_변환한다() {
+        int normalMoney = 5000;
+        int lottoPrice = 1000;
+
+        Assertions.assertThat(Money.from(normalMoney).toLottoQuantity())
+                .isEqualTo(normalMoney / lottoPrice);
+    }
+
 }
