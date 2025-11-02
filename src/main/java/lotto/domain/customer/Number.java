@@ -4,6 +4,9 @@ import lotto.exception.number.NumberIsNotLottoRangeException;
 
 public class Number {
 
+    private static final int LOTTO_RANGE_MIN = 1;
+    private static final int LOTTO_RANGE_MAX = 45;
+
     private final int symbol;
 
     private Number(int number) {
@@ -16,7 +19,7 @@ public class Number {
     }
 
     private void validateLottoRange(int number) {
-        if (number < 1 || number > 45) {
+        if (number < LOTTO_RANGE_MIN || number > LOTTO_RANGE_MAX) {
             throw new NumberIsNotLottoRangeException();
         }
     }
