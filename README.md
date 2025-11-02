@@ -28,3 +28,21 @@
   - 당첨 통계는 X개 일치, 상금액, 개수를 출력한다.
 - 수익률을 출력한다.
   - 누적 상금액과 로또 구입 금액으로 수익률을 측정한다.
+
+## 구현 기능 목록
+
+1. InputReader
+
+2. Money
+
+3. Number
+
+4. Lotto
+
+5. LottoBundle
+
+6. LottoStore
+
+7. LottoProcessor
+
+8. OutputWriter
