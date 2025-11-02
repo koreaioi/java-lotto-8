@@ -6,4 +6,8 @@ public class OutputWriter {
         System.out.println(ViewMessage.REQUEST_MONEY.getMessage());
     }
 
+    public void printErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+    }
+
 }
