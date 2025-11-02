@@ -31,6 +31,10 @@ public class OutputWriter {
         System.out.println(result);
     }
 
+    public void printLottoRoi(String lottoRoi) {
+        System.out.println(ViewMessage.LOTTO_ROI.getMessage(lottoRoi));
+    }
+
     public void printErrorMessage(String errorMessage) {
         System.out.println(errorMessage);
     }

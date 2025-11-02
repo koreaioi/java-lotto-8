@@ -98,6 +98,10 @@ public class ApplicationView {
         writer.printStatisticsInformationMessage(result);
     }
 
+    public void printLottoRoi(String result) {
+        writer.printLottoRoi(result);
+    }
+
     private void validateParsingInteger(String value) {
         try{
             Integer.parseInt(value);
