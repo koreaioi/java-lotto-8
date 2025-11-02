@@ -1,5 +1,8 @@
 package lotto.domain.customer;
 
+import lotto.domain.processor.LottoRank;
+import lotto.domain.processor.WinningLotto;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +16,12 @@ public class LottoBundle {
 
     public static LottoBundle from(List<Lotto> lottoBundle) {
         return new LottoBundle(lottoBundle);
+    }
+
+    public List<LottoRank> compareAll(WinningLotto winningLotto) {
+        return this.lottoBundle.stream()
+                .map(winningLotto::determineRank)
+                .toList();
     }
 
     public String toDisplay() {

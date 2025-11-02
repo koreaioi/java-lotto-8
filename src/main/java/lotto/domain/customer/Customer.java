@@ -1,7 +1,10 @@
 package lotto.domain.customer;
 
-import lotto.domain.store.LottoStore;
+import lotto.domain.processor.LottoRank;
+import lotto.domain.processor.WinningLotto;
 import lotto.domain.store.Store;
+
+import java.util.List;
 
 public class Customer {
 
@@ -19,6 +22,11 @@ public class Customer {
     public void buyLotto(Store store) {
         int quantity = money.toLottoQuantity();
         this.lottoBundle = store.sellLotto(quantity);
+    }
+
+    public void compareMyLottoWithWinningLotto(WinningLotto winningLotto) {
+        List<LottoRank> lottoRanks = lottoBundle.compareAll(winningLotto);
+        // LottoResult 
     }
 
     public String toDisplay() {
