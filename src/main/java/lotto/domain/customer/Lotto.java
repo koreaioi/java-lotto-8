@@ -58,8 +58,9 @@ public class Lotto {
 
     public String toDisplay() {
         return numbers.stream()
+                .sorted()
                 .map(Number::toDisplay)
-                .collect(Collectors.joining(",", "[", "]"));
+                .collect(Collectors.joining(", ", "[", "]"));
     }
 
 }

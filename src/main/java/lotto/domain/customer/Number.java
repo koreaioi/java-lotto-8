@@ -4,7 +4,7 @@ import lotto.exception.number.NumberIsNotLottoRangeException;
 
 import java.util.Objects;
 
-public class Number {
+public class Number implements Comparable<Number>{
 
     private static final int LOTTO_RANGE_MIN = 1;
     private static final int LOTTO_RANGE_MAX = 45;
@@ -40,6 +40,11 @@ public class Number {
     @Override
     public int hashCode() {
         return Objects.hashCode(symbol);
+    }
+
+    @Override
+    public int compareTo(Number number) {
+        return symbol - number.symbol;
     }
 
 }
