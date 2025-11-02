@@ -1,7 +1,9 @@
 package lotto.domain.processor;
 
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 
 public class LottoResult {
 
@@ -32,6 +34,10 @@ public class LottoResult {
         return winningStatistics.entrySet().stream()
                 .mapToLong(e -> e.getKey().totalPrizeMoney(e.getValue()))
                 .sum();
+    }
+
+    public Map<LottoRank, Integer> getStatistics() {
+        return Collections.unmodifiableMap(winningStatistics);
     }
 
 }

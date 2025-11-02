@@ -37,6 +37,10 @@ public class Customer {
         return money.toRoi(totalProfits);
     }
 
+    public Map<LottoRank, Integer> getStatistics() {
+        return lottoResult.getStatistics();
+    }
+
     public String toLottoQuantity() {
         return String.valueOf(money.toLottoQuantity());
     }
