@@ -1,6 +1,7 @@
 package lotto.domain.customer;
 
 import lotto.domain.store.LottoStore;
+import lotto.domain.store.Store;
 
 public class Customer {
 
@@ -15,9 +16,13 @@ public class Customer {
         return new Customer(money);
     }
 
-    public void buyLotto(LottoStore store) {
+    public void buyLotto(Store store) {
         int quantity = money.toLottoQuantity();
         this.lottoBundle = store.sellLotto(quantity);
+    }
+
+    public String toDisplay() {
+        return lottoBundle.toDisplay();
     }
 
 }
