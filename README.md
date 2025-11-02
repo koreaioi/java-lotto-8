@@ -47,6 +47,7 @@
 
 4. Lotto
 - [타입] 주어진 List<Integer>대신 List<Number>타입을 사용한다.
+- [출력] 출력할 때, 오름차순 정렬하여 출력한다.
 
 5. LottoBundle
 - [타입] List<Lotto>를 가진다.
