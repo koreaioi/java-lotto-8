@@ -31,6 +31,11 @@ public class Customer {
         this.lottoResult = LottoResult.from(lottoRanks);
     }
 
+    public double toRoi() {
+        long totalProfits = lottoResult.calculateTotalProfits();
+        return money.toRoi(totalProfits);
+    }
+
     public String toDisplay() {
         return lottoBundle.toDisplay();
     }
