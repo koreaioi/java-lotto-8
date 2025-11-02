@@ -1,6 +1,7 @@
 package lotto.domain;
 
 import lotto.domain.customer.Number;
+import lotto.exception.number.NumberIsNotLottoRangeException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +19,14 @@ public class NumberTest {
                 .doesNotThrowAnyException();
         Assertions.assertThatCode(()-> Number.from(maxLottoNumber))
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    void 로또번호가_음수이면_예외가_발생한다() {
+        int negative = -1;
+        Assertions.assertThatThrownBy(() -> Number.from(negative))
+                .isInstanceOf(NumberIsNotLottoRangeException.class)
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }
