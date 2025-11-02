@@ -29,4 +29,12 @@ public class NumberTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 로또번호가_0이면_예외가_발생한다() {
+        int zero = 0;
+        Assertions.assertThatThrownBy(() -> Number.from(zero))
+                .isInstanceOf(NumberIsNotLottoRangeException.class)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
