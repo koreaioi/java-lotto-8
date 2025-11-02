@@ -1,9 +1,12 @@
 package lotto.domain.customer;
 
 import lotto.exception.MoneyIsNegativeException;
+import lotto.exception.MoneyIsNotThousandUnitException;
 import lotto.exception.MoneyIsZeroException;
 
 public class Money {
+
+    private static final int LOTTO_PRICE_UNIT = 1000;
 
     private final int symbol;
 
@@ -19,6 +22,7 @@ public class Money {
     private void validate(int money) {
         validateZero(money);
         validateNegative(money);
+        validateMoneyUnit(money);
     }
 
     private void validateZero(int money) {
@@ -33,5 +37,10 @@ public class Money {
         }
     }
 
+    private void validateMoneyUnit(int money) {
+        if (money % LOTTO_PRICE_UNIT != 0) {
+            throw new MoneyIsNotThousandUnitException();
+        }
+    }
 
 }
