@@ -50,7 +50,7 @@ public class ApplicationView {
         writer.printWinningNumberRequestMessage();
         return requestValidInput(() -> {
             List<String> numbers = reader.readValues();
-            numbers.forEach(this::validateParsingInteger);
+            validateParsingInteger(numbers);
             return Lotto.from(getNumberList(numbers));
         });
     }
@@ -60,16 +60,8 @@ public class ApplicationView {
         return requestValidInput(() -> {
             String value = reader.readValue();
             validateParsingInteger(value);
-            Number bonusNumber = Number.from(Integer.parseInt(value));
-            return WinningLotto.of(lotto, bonusNumber);
+            return WinningLotto.of(lotto, Number.from(Integer.parseInt(value)));
         });
-    }
-
-    private List<Number> getNumberList(List<String> list) {
-        return list.stream()
-                .map(Integer::parseInt)
-                .map(Number::from)
-                .toList();
     }
 
     public void printLottoSet(String quantity, String lottoBundle) {
@@ -90,6 +82,17 @@ public class ApplicationView {
 
     public void printLottoRoi(String result) {
         writer.printLottoRoi(result);
+    }
+
+    private List<Number> getNumberList(List<String> list) {
+        return list.stream()
+                .map(Integer::parseInt)
+                .map(Number::from)
+                .toList();
+    }
+
+    private void validateParsingInteger(List<String> values) {
+        values.forEach(this::validateParsingInteger);
     }
 
     private void validateParsingInteger(String value) {
