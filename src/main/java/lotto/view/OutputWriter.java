@@ -16,6 +16,14 @@ public class OutputWriter {
         System.out.println("보너스 번호를 입력해 주세요.");
     }
 
+    public void printLottoQuantity(String quantity) {
+        System.out.println(quantity + "개를 구매했습니다.");
+    }
+
+    public void printLottoBundle(String lottoBundle) {
+        System.out.println(lottoBundle);
+    }
+
     public void printErrorMessage(String errorMessage) {
         System.out.println(errorMessage);
     }

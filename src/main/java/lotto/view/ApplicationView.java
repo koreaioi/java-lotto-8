@@ -77,6 +77,11 @@ public class ApplicationView {
                 .toList();
     }
 
+    public void printLottoSet(String quantity, String lottoBundle) {
+        writer.printLottoQuantity(quantity);
+        writer.printLottoBundle(lottoBundle);
+    }
+
     private void validateParsingInteger(String value) {
         try{
             Integer.parseInt(value);
