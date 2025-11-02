@@ -1,6 +1,7 @@
 package lotto.domain.customer;
 
 import lotto.domain.processor.LottoRank;
+import lotto.domain.processor.LottoResult;
 import lotto.domain.processor.WinningLotto;
 import lotto.domain.store.Store;
 
@@ -10,6 +11,7 @@ public class Customer {
 
     private final Money money;
     private LottoBundle lottoBundle;
+    private LottoResult lottoResult;
 
     private Customer(Money money) {
         this.money = money;
@@ -26,7 +28,7 @@ public class Customer {
 
     public void compareMyLottoWithWinningLotto(WinningLotto winningLotto) {
         List<LottoRank> lottoRanks = lottoBundle.compareAll(winningLotto);
-        // LottoResult 
+        this.lottoResult = LottoResult.from(lottoRanks);
     }
 
     public String toDisplay() {
