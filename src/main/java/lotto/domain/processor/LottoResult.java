@@ -17,9 +17,14 @@ public class LottoResult {
 
     private EnumMap<LottoRank, Integer> doStatistics(List<LottoRank> rankResult) {
         EnumMap<LottoRank, Integer> statistics = new EnumMap<>(LottoRank.class);
-        for (LottoRank rank : rankResult) {
-            statistics.put(rank, statistics.getOrDefault(rank, 0) + 1);
+        for (LottoRank rank : LottoRank.values()) {
+            statistics.put(rank, 0);
         }
+
+        for (LottoRank rank : rankResult) {
+            statistics.put(rank, statistics.get(rank) + 1);
+        }
+
         return statistics;
     }
 
