@@ -6,6 +6,7 @@ import lotto.domain.processor.WinningLotto;
 import lotto.domain.store.Store;
 
 import java.util.List;
+import java.util.Map;
 
 public class Customer {
 
