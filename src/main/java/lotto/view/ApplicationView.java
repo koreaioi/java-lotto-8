@@ -84,6 +84,7 @@ public class ApplicationView {
     }
 
     public void printLottoSet(String quantity, String lottoBundle) {
+        writer.printLineSeparator();
         writer.printLottoQuantity(quantity);
         writer.printLottoBundle(lottoBundle);
     }

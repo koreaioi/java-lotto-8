@@ -39,7 +39,7 @@ public class OutputWriter {
         System.out.println(errorMessage);
     }
 
-    private void printLineSeparator() {
+    public void printLineSeparator() {
         System.out.println();
     }
 
