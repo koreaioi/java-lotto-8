@@ -23,4 +23,10 @@ public class LottoResult {
         return statistics;
     }
 
+    public long calculateTotalProfits() {
+        return winningStatistics.entrySet().stream()
+                .mapToLong(e -> e.getKey().totalPrizeMoney(e.getValue()))
+                .sum();
+    }
+
 }
