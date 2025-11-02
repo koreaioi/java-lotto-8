@@ -26,7 +26,7 @@ public class LottoStoreTest {
         LottoStore lottoStore = new LottoStore(lottoTestGenerator);
         customer.buyLotto(lottoStore);
 
-        Assertions.assertThat(customer.toDisplay())
+        Assertions.assertThat(customer.toLottoBundleDisplay())
                 .isEqualTo(testLotto.toDisplay());
     }
 
