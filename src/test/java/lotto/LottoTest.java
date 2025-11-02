@@ -2,6 +2,7 @@ package lotto;
 
 import lotto.domain.customer.Lotto;
 import lotto.domain.customer.Number;
+import lotto.exception.lotto.LottoCountException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class LottoTest {
     @Test
     void 로또_번호의_개수가_6개가_넘어가면_예외가_발생한다() {
-        assertThatThrownBy(() -> new Lotto(Stream.of(1,2,3,4,5,6,7).map(Number::from).toList()))
+        assertThatThrownBy(() -> new Lotto(Stream.of(1, 2, 3, 4, 5, 6, 7).map(Number::from).toList()))
+                .isInstanceOf(LottoCountException.class)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
