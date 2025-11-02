@@ -25,7 +25,8 @@ public class Money {
     }
 
     public double toRoi(long totalProfits) {
-        return ((double) symbol / (double) totalProfits) * 100.0;
+        double roi = ((double) totalProfits / (double) symbol) * 100.0;
+        return Math.round(roi * 100.0) / 100.0;
     }
 
     private void validate(int money) {
