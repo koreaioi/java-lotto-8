@@ -1,8 +1,8 @@
 package lotto.domain.customer;
 
 import lotto.exception.lotto.LottoCountException;
-import lotto.exception.number.BonusNumberIsDuplicatedException;
-import lotto.exception.number.NormalNumberIsDuplicatedException;
+import lotto.exception.lotto.BonusNumberIsDuplicatedException;
+import lotto.exception.lotto.NormalNumberIsDuplicatedException;
 
 import java.util.List;
 import java.util.stream.Collectors;

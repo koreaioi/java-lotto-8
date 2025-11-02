@@ -4,8 +4,8 @@ import lotto.domain.customer.Lotto;
 import lotto.domain.customer.Number;
 import lotto.domain.processor.LottoRank;
 import lotto.domain.processor.WinningLotto;
-import lotto.exception.number.BonusNumberIsDuplicatedException;
-import lotto.exception.number.NormalNumberIsDuplicatedException;
+import lotto.exception.lotto.BonusNumberIsDuplicatedException;
+import lotto.exception.lotto.NormalNumberIsDuplicatedException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

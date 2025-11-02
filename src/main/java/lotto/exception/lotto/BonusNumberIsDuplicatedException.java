@@ -1,4 +1,4 @@
-package lotto.exception.number;
+package lotto.exception.lotto;
 
 import lotto.exception.ErrorMessage;
 import lotto.exception.LottoException;
