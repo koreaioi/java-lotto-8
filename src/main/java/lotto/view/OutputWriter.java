@@ -8,16 +8,16 @@ public class OutputWriter {
 
     public void printWinningNumberRequestMessage() {
         printLineSeparator();
-        System.out.println("당첨 번호를 입력해 주세요.");
+        System.out.println(ViewMessage.WINNING_NUMBER.getMessage());
     }
 
     public void printBonusNumberRequestMessage() {
         printLineSeparator();
-        System.out.println("보너스 번호를 입력해 주세요.");
+        System.out.println(ViewMessage.BONUS_NUMBER.getMessage());
     }
 
     public void printLottoQuantity(String quantity) {
-        System.out.println(quantity + "개를 구매했습니다.");
+        System.out.println(ViewMessage.LOTTO_QUANTITY.getMessage(quantity));
     }
 
     public void printLottoBundle(String lottoBundle) {
@@ -26,8 +26,8 @@ public class OutputWriter {
 
     public void printStatisticsInformationMessage(String result) {
         printLineSeparator();
-        System.out.println("당첨 통계");
-        System.out.println("---");
+        System.out.println(ViewMessage.WINNING_STATISTIC.getMessage());
+        System.out.println(ViewMessage.DASH.getMessage());
         System.out.println(result);
     }
 
