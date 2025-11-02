@@ -5,21 +5,27 @@ import lotto.domain.customer.Number;
 
 public class WinningLotto {
 
-    private final Lotto normalLotto;
+    private final Lotto winningLotto;
     private final Number bonusNumber;
 
-    private WinningLotto(Lotto normalLotto, Number bonusNumber) {
-        validateDuplicatedBonusNumber(normalLotto, bonusNumber);
-        this.normalLotto = normalLotto;
+    private WinningLotto(Lotto winningLotto, Number bonusNumber) {
+        validateDuplicatedBonusNumber(winningLotto, bonusNumber);
+        this.winningLotto = winningLotto;
         this.bonusNumber = bonusNumber;
     }
 
-    public static WinningLotto of(Lotto normalLotto, Number bonusNumber) {
-        return new WinningLotto(normalLotto, bonusNumber);
+    public static WinningLotto of(Lotto winningLotto, Number bonusNumber) {
+        return new WinningLotto(winningLotto, bonusNumber);
     }
 
-    private void validateDuplicatedBonusNumber(Lotto normalLotto, Number bonusNumber) {
-        normalLotto.validateDuplicatedBonusNumber(bonusNumber);
+    private void validateDuplicatedBonusNumber(Lotto winningLotto, Number bonusNumber) {
+        winningLotto.validateDuplicatedBonusNumber(bonusNumber);
+    }
+
+    public LottoRank determineRank(Lotto userLotto) {
+        int normalCount = userLotto.countMatchingWinningLotto(winningLotto);
+        boolean hasBonus = userLotto.contains(bonusNumber);
+        return LottoRank.valueOf(normalCount, hasBonus);
     }
 
 }
