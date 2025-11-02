@@ -1,4 +1,7 @@
-package lotto.exception;
+package lotto.exception.money;
+
+import lotto.exception.ErrorMessage;
+import lotto.exception.LottoException;
 
 public class MoneyIsZeroException extends LottoException {
     public MoneyIsZeroException() {

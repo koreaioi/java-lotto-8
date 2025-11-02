@@ -1,9 +1,9 @@
 package lotto.domain;
 
 import lotto.domain.customer.Money;
-import lotto.exception.MoneyIsNegativeException;
-import lotto.exception.MoneyIsNotThousandUnitException;
-import lotto.exception.MoneyIsZeroException;
+import lotto.exception.money.MoneyIsNegativeException;
+import lotto.exception.money.MoneyIsNotThousandUnitException;
+import lotto.exception.money.MoneyIsZeroException;
 import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
 

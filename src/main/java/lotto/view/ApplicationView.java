@@ -1,7 +1,7 @@
 package lotto.view;
 
 import lotto.domain.customer.Money;
-import lotto.exception.MoneyIsNotIntegerException;
+import lotto.exception.money.MoneyIsNotIntegerException;
 
 public class ApplicationView {
 
