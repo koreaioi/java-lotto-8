@@ -1,4 +1,4 @@
-package lotto;
+package lotto.domain.customer;
 
 import java.util.List;
 
