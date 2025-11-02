@@ -6,7 +6,7 @@ import lotto.domain.customer.LottoBundle;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class LottoStore {
+public class LottoStore implements Store {
 
     private final LottoGenerator lottoGenerator;
 
@@ -14,6 +14,7 @@ public class LottoStore {
         this.lottoGenerator = lottoGenerator;
     }
 
+    @Override
     public LottoBundle sellLotto(int quantity) {
         List<Lotto> lottoBundle = IntStream.range(0, quantity)
                 .mapToObj(i -> lottoGenerator.generateLotto())
