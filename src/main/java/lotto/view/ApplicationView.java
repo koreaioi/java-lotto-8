@@ -9,6 +9,7 @@ import lotto.exception.money.MoneyIsNotIntegerException;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static lotto.domain.customer.LottoRank.*;
@@ -38,42 +39,30 @@ public class ApplicationView {
     }
 
     public Money requestMoney() {
-        while (true) {
-            try {
-                String value = reader.readValue();
-                validateParsingInteger(value);
-                return Money.from(Integer.parseInt(value));
-            } catch (IllegalArgumentException e) {
-                writer.printErrorMessage(e.getMessage());
-            }
-        }
+        return requestValidInput(() -> {
+            String value = reader.readValue();
+            validateParsingInteger(value);
+            return Money.from(Integer.parseInt(value));
+        });
     }
 
     public Lotto requestWinningNormalLotto() {
         writer.printWinningNumberRequestMessage();
-        while (true) {
-            try{
-                List<String> numbers = reader.readValues();
-                numbers.forEach(this::validateParsingInteger);
-                return Lotto.from(getNumberList(numbers));
-            }catch (IllegalArgumentException e) {
-                writer.printErrorMessage(e.getMessage());
-            }
-        }
+        return requestValidInput(() -> {
+            List<String> numbers = reader.readValues();
+            numbers.forEach(this::validateParsingInteger);
+            return Lotto.from(getNumberList(numbers));
+        });
     }
 
     public WinningLotto requestBonusLotto(Lotto lotto) {
         writer.printBonusNumberRequestMessage();
-        while (true) {
-            try {
-                String value = reader.readValue();
-                validateParsingInteger(value);
-                Number bonusNumber = Number.from(Integer.parseInt(value));
-                return WinningLotto.of(lotto, bonusNumber);
-            } catch (IllegalArgumentException e) {
-                writer.printErrorMessage(e.getMessage());
-            }
-        }
+        return requestValidInput(() -> {
+            String value = reader.readValue();
+            validateParsingInteger(value);
+            Number bonusNumber = Number.from(Integer.parseInt(value));
+            return WinningLotto.of(lotto, bonusNumber);
+        });
     }
 
     private List<Number> getNumberList(List<String> list) {
@@ -108,6 +97,16 @@ public class ApplicationView {
             Integer.parseInt(value);
         }catch (NumberFormatException e){
             throw new MoneyIsNotIntegerException();
+        }
+    }
+
+    private <T> T requestValidInput(Supplier<T> task) {
+        while (true) {
+            try {
+                return task.get();
+            } catch (IllegalArgumentException e) {
+                writer.printErrorMessage(e.getMessage());
+            }
         }
     }
 
