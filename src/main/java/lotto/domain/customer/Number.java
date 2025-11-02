@@ -1,6 +1,7 @@
 package lotto.domain.customer;
 
 import lotto.exception.number.NumberIsNegativeException;
+import lotto.exception.number.NumberIsNotLottoRangeException;
 import lotto.exception.number.NumberIsZeroException;
 
 public class Number {
@@ -20,6 +21,7 @@ public class Number {
         // TODO(should) 검증 추가하기
         validateZero(number);
         validateNegative(number);
+        validateLottoRange(number);
     }
 
     private void validateZero(int number) {
@@ -31,6 +33,12 @@ public class Number {
     private void validateNegative(int number) {
         if (number < 0) {
             throw new NumberIsNegativeException();
+        }
+    }
+
+    private void validateLottoRange(int number) {
+        if (number < 1 || number > 45) {
+            throw new NumberIsNotLottoRangeException();
         }
     }
 
