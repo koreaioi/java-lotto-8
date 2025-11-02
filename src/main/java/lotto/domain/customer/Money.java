@@ -24,6 +24,10 @@ public class Money {
         return symbol / LOTTO_PRICE_UNIT;
     }
 
+    public double toRoi(long totalProfits) {
+        return ((double) symbol / (double) totalProfits) * 100.0;
+    }
+
     private void validate(int money) {
         validateZero(money);
         validateNegative(money);
