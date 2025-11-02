@@ -37,7 +37,11 @@ public class Customer {
         return money.toRoi(totalProfits);
     }
 
-    public String toDisplay() {
+    public String toLottoQuantity() {
+        return String.valueOf(money.toLottoQuantity());
+    }
+
+    public String toLottoBundleDisplay() {
         return lottoBundle.toDisplay();
     }
 
