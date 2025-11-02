@@ -40,6 +40,12 @@ public class Lotto {
         }
     }
 
+    public int countMatchingWinningLotto(Lotto winningLotto) {
+        return (int) numbers.stream()
+                .filter(winningLotto::contains)
+                .count();
+    }
+
     public boolean contains(Number number) {
         return numbers.contains(number);
     }
@@ -49,8 +55,6 @@ public class Lotto {
                 .distinct()
                 .count();
     }
-
-    // TODO: 추가 기능 구현
 
     public String toDisplay() {
         return numbers.stream()
