@@ -37,4 +37,13 @@ public class NumberTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 로또번호가_45보다_크면_예외가_발생한다() {
+        int overLottoNumber = 46;
+
+        Assertions.assertThatThrownBy(() -> Number.from(overLottoNumber))
+                .isInstanceOf(NumberIsNotLottoRangeException.class)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
