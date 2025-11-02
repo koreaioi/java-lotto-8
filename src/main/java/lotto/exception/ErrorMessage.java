@@ -9,6 +9,7 @@ public enum ErrorMessage {
 
     LOTTO_IS_ZERO("로또 번호는 0일 수 없습니다. 1과 45사이의 로또 번호를 다시 입력해주세요."),
     LOTTO_IS_NEGATIVE("로또 번호는 음수일 수 없습니다. 1과 45사이의 로또 번호를 다시 입력해주세요."),
+    NUMBER_IS_NOT_LOTTO_RANGE("로또 번호는 1부터 45 사이의 정수입니다. 다시 입력해주세요."),
     ;
 
     private final String message;
