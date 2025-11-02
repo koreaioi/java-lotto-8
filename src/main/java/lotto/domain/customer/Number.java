@@ -2,6 +2,8 @@ package lotto.domain.customer;
 
 import lotto.exception.number.NumberIsNotLottoRangeException;
 
+import java.util.Objects;
+
 public class Number {
 
     private static final int LOTTO_RANGE_MIN = 1;
@@ -26,6 +28,18 @@ public class Number {
 
     public String toDisplay() {
         return String.valueOf(symbol);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        return symbol == ((Number) other).symbol;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(symbol);
     }
 
 }
