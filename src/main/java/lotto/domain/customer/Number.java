@@ -6,8 +6,8 @@ import java.util.Objects;
 
 public class Number implements Comparable<Number>{
 
-    private static final int LOTTO_RANGE_MIN = 1;
-    private static final int LOTTO_RANGE_MAX = 45;
+    private static final int LOTTO_MIN_NUMBER = 1;
+    private static final int LOTTO_MAX_NUMBER = 45;
 
     private final int symbol;
 
@@ -21,7 +21,7 @@ public class Number implements Comparable<Number>{
     }
 
     private void validateLottoRange(int number) {
-        if (number < LOTTO_RANGE_MIN || number > LOTTO_RANGE_MAX) {
+        if (number < LOTTO_MIN_NUMBER || number > LOTTO_MAX_NUMBER) {
             throw new NumberIsNotLottoRangeException();
         }
     }
