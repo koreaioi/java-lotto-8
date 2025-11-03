@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class LottoResult {
 
-    EnumMap<LottoRank, Integer> winningStatistics;
+    private final EnumMap<LottoRank, Integer> winningStatistics;
 
     private LottoResult(List<LottoRank> rankResult) {
         winningStatistics = doStatistics(rankResult);
