@@ -8,6 +8,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Lotto {
+
+    private static final String LOTTO_DELIMITER = ", ";
+    private static final String LOTTO_PREFIX = "[";
+    private static final String LOTTO_SUFFIX = "]";
+
     private final List<Number> numbers;
 
     private Lotto(List<Number> numbers) {
@@ -60,7 +65,7 @@ public class Lotto {
         return numbers.stream()
                 .sorted()
                 .map(Number::toDisplay)
-                .collect(Collectors.joining(", ", "[", "]"));
+                .collect(Collectors.joining(LOTTO_DELIMITER, LOTTO_PREFIX, LOTTO_SUFFIX));
     }
 
 }
