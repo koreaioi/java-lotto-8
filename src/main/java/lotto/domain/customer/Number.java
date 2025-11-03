@@ -21,9 +21,13 @@ public class Number implements Comparable<Number>{
     }
 
     private void validateLottoRange(int number) {
-        if (number < LOTTO_MIN_NUMBER || number > LOTTO_MAX_NUMBER) {
+        if (isNotLottoRange(number)) {
             throw new NumberIsNotLottoRangeException();
         }
+    }
+
+    private boolean isNotLottoRange(int number) {
+        return number < LOTTO_MIN_NUMBER || number > LOTTO_MAX_NUMBER;
     }
 
     public String toDisplay() {
