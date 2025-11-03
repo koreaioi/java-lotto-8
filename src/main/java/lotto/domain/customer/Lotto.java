@@ -37,9 +37,7 @@ public class Lotto {
     }
 
     private void validateDuplicateNormalNumber(List<Number> numbers) {
-        int originCount = numbers.size();
-        int distinctCount = getDistinctCount(numbers);
-        if (distinctCount != originCount) {
+        if (isDuplicateNormalNumber(numbers)) {
             throw new NormalNumberIsDuplicatedException();
         }
     }
@@ -58,6 +56,11 @@ public class Lotto {
 
     public boolean contains(Number number) {
         return numbers.contains(number);
+    }
+
+    private boolean isDuplicateNormalNumber(List<Number> numbers) {
+        int originCount = numbers.size();
+        return originCount != getDistinctCount(numbers);
     }
 
     private int getDistinctCount(List<Number> numbers) {
