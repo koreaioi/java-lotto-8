@@ -31,14 +31,10 @@ public enum LottoRank {
     }
 
     public static LottoRank valueOf(int normalCount, boolean hasBonus) {
-        if (!hasBonus && normalCount == THIRD.normalCount) {
+        if (isThirdRank(normalCount, hasBonus)) {
             return THIRD;
         }
-
-        return Arrays.stream(values())
-                .filter(rank -> rank.normalCount == normalCount)
-                .findFirst()
-                .orElse(MISS);
+        return getLottoRank(normalCount);
     }
 
     public String toDisplay() {
@@ -47,6 +43,17 @@ public enum LottoRank {
             bonusDisplay = BONUS_MATCHING_MESSAGE;
         }
         return String.format(LOTTO_RANK_DISPLAY_FORMAT, normalCount, bonusDisplay, prizeMoney);
+    }
+
+    private static LottoRank getLottoRank(int normalCount) {
+        return Arrays.stream(values())
+                .filter(rank -> rank.normalCount == normalCount)
+                .findFirst()
+                .orElse(MISS);
+    }
+
+    private static boolean isThirdRank(int normalCount, boolean hasBonus) {
+        return !hasBonus && normalCount == THIRD.normalCount;
     }
 
 }
