@@ -2,25 +2,25 @@ package lotto.domain.customer;
 
 public class WinningLotto {
 
-    private final Lotto winningLotto;
+    private final Lotto normalNumbers;
     private final Number bonusNumber;
 
-    private WinningLotto(Lotto winningLotto, Number bonusNumber) {
-        validateDuplicatedBonusNumber(winningLotto, bonusNumber);
-        this.winningLotto = winningLotto;
+    private WinningLotto(Lotto normalNumbers, Number bonusNumber) {
+        validateDuplicatedBonusNumber(normalNumbers, bonusNumber);
+        this.normalNumbers = normalNumbers;
         this.bonusNumber = bonusNumber;
     }
 
-    public static WinningLotto of(Lotto winningLotto, Number bonusNumber) {
-        return new WinningLotto(winningLotto, bonusNumber);
+    public static WinningLotto of(Lotto normalNumbers, Number bonusNumber) {
+        return new WinningLotto(normalNumbers, bonusNumber);
     }
 
-    private void validateDuplicatedBonusNumber(Lotto winningLotto, Number bonusNumber) {
-        winningLotto.validateDuplicatedBonusNumber(bonusNumber);
+    private void validateDuplicatedBonusNumber(Lotto normalNumbers, Number bonusNumber) {
+        normalNumbers.validateDuplicatedBonusNumber(bonusNumber);
     }
 
     public LottoRank determineRank(Lotto userLotto) {
-        int normalCount = userLotto.countMatchingWinningLotto(winningLotto);
+        int normalCount = userLotto.countMatchingWinningLotto(normalNumbers);
         boolean hasBonus = userLotto.contains(bonusNumber);
         return LottoRank.valueOf(normalCount, hasBonus);
     }
