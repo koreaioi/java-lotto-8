@@ -43,11 +43,11 @@ public enum LottoRank {
     }
 
     public String toDisplay() {
-        String bonusTest = EMPTY_STING;
+        String bonusDisplay = EMPTY_STING;
         if (this.hasBonus) {
-            bonusTest = BONUS_MATCHING_MESSAGE;
+            bonusDisplay = BONUS_MATCHING_MESSAGE;
         }
-        return String.format(LOTTO_RANK_DISPLAY_FORMAT, normalCount, bonusTest, prizeMoney);
+        return String.format(LOTTO_RANK_DISPLAY_FORMAT, normalCount, bonusDisplay, prizeMoney);
     }
 
 }
