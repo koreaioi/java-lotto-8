@@ -12,6 +12,7 @@ public class Lotto {
     private static final String LOTTO_DELIMITER = ", ";
     private static final String LOTTO_PREFIX = "[";
     private static final String LOTTO_SUFFIX = "]";
+    private static final int LOTTO_NUMBER_COUNT = 6;
 
     private final List<Number> numbers;
 
@@ -30,7 +31,7 @@ public class Lotto {
     }
 
     private void validateNumberLength(List<Number> numbers) {
-        if (numbers.size() != 6) {
+        if (numbers.size() != LOTTO_NUMBER_COUNT) {
             throw new LottoCountException();
         }
     }
