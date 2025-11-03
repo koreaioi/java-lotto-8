@@ -21,7 +21,7 @@ public class LottoStoreTest {
                 Number.from(6)
         ));
 
-        Customer customer = Customer.of(Money.from(1000));
+        Customer customer = Customer.from(Money.from(1000));
         LottoTestGenerator lottoTestGenerator = new LottoTestGenerator(List.of(testLotto));
         LottoStore lottoStore = new LottoStore(lottoTestGenerator);
         customer.buyLotto(lottoStore);

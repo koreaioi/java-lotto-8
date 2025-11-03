@@ -15,7 +15,7 @@ public class Customer {
         this.money = money;
     }
 
-    public static Customer of(Money money) {
+    public static Customer from(Money money) {
         return new Customer(money);
     }
 

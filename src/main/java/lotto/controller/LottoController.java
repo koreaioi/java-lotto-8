@@ -18,7 +18,7 @@ public class LottoController {
 
     public void start() {
         Money money = getMoney();
-        Customer customer = Customer.of(money);
+        Customer customer = Customer.from(money);
 
         customer.buyLotto(store);
         printLottoBundle(customer);
