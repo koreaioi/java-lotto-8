@@ -14,7 +14,7 @@ public enum LottoRank {
 
     private static final String EMPTY_STING = "";
     private static final String BONUS_MATCHING_MESSAGE = ", 보너스 볼 일치";
-    private static final String LOTTO_RANK_DISPLAY_FORMAT = "%d개 일치%s (%,d원);";
+    private static final String LOTTO_RANK_DISPLAY_FORMAT = "%d개 일치%s (%,d원)";
 
     private final int normalCount;
     private final long prizeMoney;
