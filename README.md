@@ -86,3 +86,70 @@
 13. ApplicationView
 - [입출력] reader와 outputwriter를 사용하여, Controller가 사용할 View 로직을 사용한다. 
 - [반복] 사용자가 잘못된 값을 입력할 경우 예외메세지를 출력하고 다시 입력받는다.
+
+## 3주차는 객체의 협력을 어떻게 드러냈는가
+객체지향, 객체지향을 추구하면서, 제가 짠 코드를 다시 보면 절차지향적으로 짜여진 경우가 많았습니다.
+특히, Controller가 메서드를 호출하고, 반환값을 다시 새로운 메서드의 매개 인자로 넣어주는 것이 절차지향적이라고 생각합니다.
+(출력하는 과정은 어쩔 수 없겠죠!)
+
+```java
+// 이런 코드는 결국 결국 절차지향 아닐까??
+class Controller{
+        public void start(){
+             TypeA a = methodA();
+             TypeB b = methodB(a);
+             TypeC c = methodA(b);
+        }
+}
+```
+
+이번에는 객체간의 협력에 집중해보고 싶었습니다.
+Customer는 Store에서 구매하고, 당첨번호를 비교하며, 자신의 로또 순위를 계산합니다.
+
+```java
+// 많이 생략됐습니다.
+class Customer{
+    public void buyLotto(Store store){
+        this.lottoBundle = store.sellLotto(quantity);
+    }
+}
+
+class LottoStore{
+    public LottoBundle sellLotto(int quantity){
+        return new LottoBundle();                   
+    }
+}
+```
+
+모든 호출부의 반환을 Controller가 관리하는 형태는, 객체의 메서드가 단순히 절차에 따라 호출되어 행동의 결과를 반환하기 때문에, ‘일회성 객체’로 느껴졌습니다.
+그러나 Customer가 Store와 협력하고, 그렇게 획득한 LottoBundle로 다른 객체와 협력하니, Customer가 정말 살아있는 객체로 느껴져서 좋았습니다.
+
+최종적으로 Controller는 다음과 같이 작성했습니다.
+
+```java
+   public void start() {
+        Money money = getMoney();
+        Customer customer = Customer.from(money);
+
+        customer.buyLotto(store);
+        printLottoBundle(customer);
+
+        WinningLotto winningLotto = getWinningLotto();
+        customer.compareMyLottoWithWinningLotto(winningLotto);
+
+        printStatistics(customer);
+        printRoi(customer);
+    }
+```
+
+- 구매자가 상점에서 로또를 구매한다.
+- 구매자가 자신의 로또를 당첨번호와 비교한다.
+- 출력한다.
+
+이렇게 어쩔 수 없는 프로그래밍의 흐름을 제외하고는   
+객체간의 협력을 중심으로 어플리케이션이 동작한다고 느껴졌습니다.
+
+## 로또 생성기 추상화
+
+로또 생성기를 추상화한 이유는 테스트 코드에 용이하기 위해서입니다.   
+로또 생성기를 추상화하여, 랜덤번호 생성기와, 커스텀번호 생성기로 구현하면 테스트에 용이할 것이라 생각했습니다.
