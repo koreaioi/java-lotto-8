@@ -32,7 +32,7 @@ public enum LottoRank {
     }
 
     static LottoRank valueOf(int normalCount, boolean hasBonus) {
-        if (!hasBonus && normalCount == 5) {
+        if (!hasBonus && normalCount == THIRD.normalCount) {
             return THIRD;
         }
 
