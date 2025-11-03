@@ -7,13 +7,15 @@ import java.util.List;
 
 public class InputReader {
 
+    private static final String STRING_DELIMITER = ",";
+
     public String readValue() {
         return Console.readLine()
                 .trim();
     }
 
     public List<String> readValues() {
-        return Arrays.stream(Console.readLine().split(","))
+        return Arrays.stream(Console.readLine().split(STRING_DELIMITER))
                 .map(String::trim)
                 .toList();
     }
