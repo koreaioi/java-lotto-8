@@ -30,7 +30,7 @@ public enum LottoRank {
         return this.prizeMoney * quantity;
     }
 
-    static LottoRank valueOf(int normalCount, boolean hasBonus) {
+    public static LottoRank valueOf(int normalCount, boolean hasBonus) {
         if (!hasBonus && normalCount == THIRD.normalCount) {
             return THIRD;
         }
