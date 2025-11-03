@@ -16,13 +16,17 @@ public class Lotto {
     private final List<Number> numbers;
 
     private Lotto(List<Number> numbers) {
-        validateNumberLength(numbers);
-        validateDuplicateNormalNumber(numbers);
+        validateNumbers(numbers);
         this.numbers = numbers;
     }
 
     public static Lotto from(List<Number> numbers) {
         return new Lotto(numbers);
+    }
+
+    private void validateNumbers(List<Number> numbers) {
+        validateNumberLength(numbers);
+        validateDuplicateNormalNumber(numbers);
     }
 
     private void validateNumberLength(List<Number> numbers) {
