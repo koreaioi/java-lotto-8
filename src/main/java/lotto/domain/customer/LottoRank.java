@@ -9,8 +9,9 @@ public enum LottoRank {
     THIRD(5, 1_500_000L, false),
     FOURTH(4, 50_000L, false),
     FIFTH(3, 5_000L, false),
-    MISS(0,0,false);
-    ;
+    MISS(0, 0L, false),
+    ;;
+
 
     private final int normalCount;
     private final long prizeMoney;
