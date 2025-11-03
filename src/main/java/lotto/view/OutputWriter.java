@@ -3,44 +3,48 @@ package lotto.view;
 public class OutputWriter {
 
     public void printMoneyRequestMessage() {
-        System.out.println(ViewMessage.REQUEST_MONEY.getMessage());
+        print(ViewMessage.REQUEST_MONEY.getMessage());
     }
 
     public void printWinningNumberRequestMessage() {
         printLineSeparator();
-        System.out.println(ViewMessage.WINNING_NUMBER.getMessage());
+        print(ViewMessage.WINNING_NUMBER.getMessage());
     }
 
     public void printBonusNumberRequestMessage() {
         printLineSeparator();
-        System.out.println(ViewMessage.BONUS_NUMBER.getMessage());
+        print(ViewMessage.BONUS_NUMBER.getMessage());
     }
 
     public void printLottoQuantity(String quantity) {
-        System.out.println(ViewMessage.LOTTO_QUANTITY.getMessage(quantity));
+        print(ViewMessage.LOTTO_QUANTITY.getMessage(quantity));
     }
 
     public void printLottoBundle(String lottoBundle) {
-        System.out.println(lottoBundle);
+        print(lottoBundle);
     }
 
     public void printStatisticsInformationMessage(String result) {
         printLineSeparator();
-        System.out.println(ViewMessage.WINNING_STATISTIC.getMessage());
-        System.out.println(ViewMessage.DASH.getMessage());
-        System.out.println(result);
+        print(ViewMessage.WINNING_STATISTIC.getMessage());
+        print(ViewMessage.DASH.getMessage());
+        print(result);
     }
 
     public void printLottoRoi(String lottoRoi) {
-        System.out.println(ViewMessage.LOTTO_ROI.getMessage(lottoRoi));
+        print(ViewMessage.LOTTO_ROI.getMessage(lottoRoi));
     }
 
     public void printErrorMessage(String errorMessage) {
-        System.out.println(errorMessage);
+        print(errorMessage);
     }
 
     public void printLineSeparator() {
         System.out.println();
+    }
+
+    private void print(String message) {
+        System.out.println(message);
     }
 
 }
