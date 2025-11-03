@@ -14,10 +14,18 @@ public class LottoRandomGenerator implements LottoGenerator {
 
     @Override
     public Lotto generateLotto() {
-        List<Number> numbers = Randoms.pickUniqueNumbersInRange(LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER, LOTTO_COUNT)
+        List<Number> numbers = generateRandomNumbers();
+        return createLotto(numbers);
+    }
+
+    private List<Number> generateRandomNumbers() {
+        return Randoms.pickUniqueNumbersInRange(LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER, LOTTO_COUNT)
                 .stream()
                 .map(Number::from)
                 .toList();
+    }
+
+    private Lotto createLotto(List<Number> numbers) {
         return Lotto.from(numbers);
     }
 
