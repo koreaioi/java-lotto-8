@@ -8,6 +8,8 @@ import java.util.stream.IntStream;
 
 public class LottoStore implements Store {
 
+    private static final int SALE_ATTEMPT_START = 0;
+
     private final LottoGenerator lottoGenerator;
 
     public LottoStore(LottoGenerator lottoGenerator) {
@@ -16,7 +18,7 @@ public class LottoStore implements Store {
 
     @Override
     public LottoBundle sellLotto(int quantity) {
-        List<Lotto> lottoBundle = IntStream.range(0, quantity)
+        List<Lotto> lottoBundle = IntStream.range(SALE_ATTEMPT_START, quantity)
                 .mapToObj(i -> lottoGenerator.generateLotto())
                 .toList();
         return LottoBundle.from(lottoBundle);
