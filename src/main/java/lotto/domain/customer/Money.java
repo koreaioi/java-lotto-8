@@ -7,6 +7,12 @@ import lotto.exception.money.MoneyIsZeroException;
 public class Money {
 
     private static final int LOTTO_PRICE_UNIT = 1000;
+    private static final int ZERO_CHECK = 0;
+    private static final int NEGATIVE_BOUNDARY = 0;
+    private static final int NO_REMAINDER = 0;
+    private static final double PERCENTAGE = 100.0;
+    private static final double TWO_DECIMAL_SCALE = 100.0;
+
 
     private final int symbol;
 
@@ -24,8 +30,8 @@ public class Money {
     }
 
     public double toRoi(long totalProfits) {
-        double roi = ((double) totalProfits / (double) symbol) * 100.0;
-        return Math.round(roi * 100.0) / 100.0;
+        double roi = ((double) totalProfits / (double) symbol) * PERCENTAGE;
+        return Math.round(roi * TWO_DECIMAL_SCALE) / TWO_DECIMAL_SCALE;
     }
 
     private void validate(int money) {
@@ -35,19 +41,19 @@ public class Money {
     }
 
     private void validateZero(int money) {
-        if (money == 0) {
+        if (money == ZERO_CHECK) {
             throw new MoneyIsZeroException();
         }
     }
 
     private void validateNegative(int money) {
-        if (money < 0) {
+        if (money < NEGATIVE_BOUNDARY) {
             throw new MoneyIsNegativeException();
         }
     }
 
     private void validateMoneyUnit(int money) {
-        if (money % LOTTO_PRICE_UNIT != 0) {
+        if (money % LOTTO_PRICE_UNIT != NO_REMAINDER) {
             throw new MoneyIsNotThousandUnitException();
         }
     }
