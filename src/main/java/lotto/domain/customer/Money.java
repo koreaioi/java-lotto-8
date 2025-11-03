@@ -13,7 +13,6 @@ public class Money {
     private static final double PERCENTAGE = 100.0;
     private static final double TWO_DECIMAL_SCALE = 100.0;
 
-
     private final int symbol;
 
     private Money(int money) {
@@ -41,21 +40,34 @@ public class Money {
     }
 
     private void validateZero(int money) {
-        if (money == ZERO_CHECK) {
+        if (isZero(money)) {
             throw new MoneyIsZeroException();
         }
     }
 
     private void validateNegative(int money) {
-        if (money < NEGATIVE_BOUNDARY) {
+        if (isNegative(money)) {
             throw new MoneyIsNegativeException();
         }
     }
 
     private void validateMoneyUnit(int money) {
-        if (money % LOTTO_PRICE_UNIT != NO_REMAINDER) {
+        if (isNotThousandUnit(money)) {
             throw new MoneyIsNotThousandUnitException();
         }
+    }
+
+    private boolean isZero(int money) {
+        return money == ZERO_CHECK;
+    }
+
+    private boolean isNegative(int money) {
+        return money < NEGATIVE_BOUNDARY;
+    }
+
+    private boolean isNotThousandUnit(int money) {
+        int remainder = money % LOTTO_PRICE_UNIT;
+        return remainder != NO_REMAINDER;
     }
 
 }
