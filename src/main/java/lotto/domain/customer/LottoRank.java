@@ -13,6 +13,10 @@ public enum LottoRank {
     ;;
 
 
+    private static final String EMPTY_STING = "";
+    private static final String BONUS_MATCHING_MESSAGE = ", 보너스 볼 일치";
+    private static final String LOTTO_RANK_DISPLAY_FORMAT = "%d개 일치%s (%,d원);";
+
     private final int normalCount;
     private final long prizeMoney;
     private final boolean hasBonus;
@@ -39,11 +43,11 @@ public enum LottoRank {
     }
 
     public String toDisplay() {
-        String bonusTest = "";
+        String bonusTest = EMPTY_STING;
         if (this.hasBonus) {
-            bonusTest = ", 보너스 볼 일치";
+            bonusTest = BONUS_MATCHING_MESSAGE;
         }
-        return String.format("%d개 일치%s (%,d원)", this.normalCount, bonusTest, this.prizeMoney);
+        return String.format(LOTTO_RANK_DISPLAY_FORMAT, this.normalCount, bonusTest, this.prizeMoney);
     }
 
 }
